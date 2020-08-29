@@ -1,0 +1,35 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-center
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/linmingwei/springcloud-config.git
+          ##搜索目录
+          search-paths:
+            - springcloud-config
+          username: linmingwei100@gmail.com
+          password: Lingit123
+
+      ##读取分支
+      label: master
+  # rabbitmq配置
+  rabbitmq:
+    host: 172.24.200.8
+    username: guest
+    password: guest
+    port: 5672
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
